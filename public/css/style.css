@@ -1,5 +1,23 @@
-header, .post:not(:last-child) {
+:root {
+  --dark-blue: #23374d;
+  --greyblue: #5cb8e4;
+  --grey: #e5e5e5;
+  --lightgrey: #eeeeee;
+}
+
+header,
+.post:not(:last-child) {
   border-bottom: 1px solid #ccc;
+}
+
+h1,
+h2,
+a {
+  color: var(--greyblue);
+}
+
+.container {
+  background-color: var(--lightgrey);
 }
 
 .no-button {
