@@ -37,8 +37,6 @@ const delButtonHandler = async (event) => {
   }
 };
 
-console.log("yo i'm connected");
-
 document
   .querySelector(".new-post-form")
   .addEventListener("submit", newFormHandler);
