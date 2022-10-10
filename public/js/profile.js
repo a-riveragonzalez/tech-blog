@@ -1,3 +1,11 @@
+const makePostsEl = document.querySelector(".make-posts-el");
+const addPostbtn = document.querySelector("#new-post-btn");
+
+const displayAddPost = async () => {
+  addPostbtn.style.display = "none";
+  makePostsEl.style.display = "block";
+};
+
 const newFormHandler = async (event) => {
   event.preventDefault();
 
@@ -45,4 +53,4 @@ document
   .querySelector(".post-list")
   .addEventListener("click", delButtonHandler);
 
-
+addPostbtn.addEventListener("click", displayAddPost);

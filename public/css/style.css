@@ -66,6 +66,14 @@ h1 {
   object-fit: cover;
 }
 
+.comment-date {
+  font-size: 15px;
+}
+
+.make-posts-el {
+  display: none;
+}
+
 #add-comment {
   display: none;
 }

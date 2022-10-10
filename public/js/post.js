@@ -1,6 +1,8 @@
 const commentFormEl = document.querySelector("#add-comment");
+const newCommentbtn = document.querySelector("#new-comment-btn");
 
 const displayAddComment = async () => {
+  newCommentbtn.style.display = "none";
   commentFormEl.style.display = "block";
 };
 
@@ -28,9 +30,7 @@ const addNewComment = async (event) => {
   }
 };
 
-document
-  .querySelector("#new-comment-btn")
-  .addEventListener("click", displayAddComment);
+newCommentbtn.addEventListener("click", displayAddComment);
 
 document
   .querySelector(".submit-comment-btn")
