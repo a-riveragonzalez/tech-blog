@@ -8,34 +8,39 @@
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="/css/jass.css" />
     <link rel="stylesheet" href="/css/style.css" />
   </head>
 
-  <body class="container">
+  <body class="container custom-body">
     <div class="flex-column justify-space-around">
-      <header class="display-flex justify-space-between align-center p-2">
+      <header class="display-flex justify-space-between align-center pt-2 px-2">
         <h1>
-          <span role="img" aria-label="money">💸</span>
-          <a href="/">Tech Blog</a>
+          <a href="/" class="no-button">Tech Blog</a>
         </h1>
         <nav>
-          <a href="/">Home |</a>
+          <a href="/" class="no-button nav-a">Home |</a>
           <!-- Conditionally render login or logout links -->
           {{#if logged_in}}
-            <a href="/profile">Dashboard</a>
+            <a href="/profile" class="no-button nav-a">Dashboard</a>
             <!-- or Profile page -->
             |
-            <button class="no-button" id="logout">Logout</button>
+            <button class="no-button nav-a" id="logout">Logout</button>
           {{else}}
-            <a href="/login">Login</a>
+            <a href="/login" class="no-button nav-a">Login</a>
           {{/if}}
         </nav>
       </header>
-      <main class="container container-fluid mt-5">
-        <!-- Render the sub layout -->
-        {{{body}}}
-      </main>
+
+      <!-- Render the sub layout -->
+      {{{body}}}
+
       <footer>
 
       </footer>
@@ -46,7 +51,7 @@
       <script src="/js/logout.js"></script>
     {{/if}}
 
-    {{!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> --}}
+    {{! <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> }}
 
   </body>
 
