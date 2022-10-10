@@ -47,23 +47,39 @@ const delButtonHandler = async (event) => {
   }
 };
 
-const editButtonHandler = async (event) => {
+const showEditButtonHandler = async (event) => {
   makePostsEl.style.display = "none";
   editPostsEl.style.display = "block";
+};
 
-  // if (event.target.hasAttribute("data-id")) {
-  //   const id = event.target.getAttribute("data-id");
+const cancelEditButtonHandler = async () => {
+  editPostsEl.style.display = "none";
+  makePostsEl.style.display = "none";
+};
 
-  //   const response = await fetch(`/api/posts/${id}`, {
-  //     method: "DELETE",
-  //   });
+// todo update a post
+const editButtonHandler = async (event) => {
+  if (event.target.hasAttribute("data-id")) {
+    event.preventDefault();
 
-  //   if (response.ok) {
-  //     document.location.replace("/profile");
-  //   } else {
-  //     alert("Failed to delete post");
-  //   }
-  // }
+    const id = event.target.getAttribute("data-id");
+    const title = document.querySelector("#edit-post-name").value.trim();
+    const content = document.querySelector("#edit-post-desc").value.trim();
+
+    const response = await fetch(`/api/posts/${id}`, {
+      method: "PUT",
+      body: JSON.stringify({ title, content }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (response.ok) {
+      document.location.replace("/profile");
+    } else {
+      alert("Failed to delete post");
+    }
+  }
 };
 
 addPostbtn.addEventListener("click", displayAddPost);
@@ -78,4 +94,12 @@ document
 
 document
   .querySelector("#edit-btn")
+  .addEventListener("click", showEditButtonHandler);
+
+document
+  .querySelector("#save-edit-btn")
   .addEventListener("click", editButtonHandler);
+
+document
+  .querySelector("#cancel-btn")
+  .addEventListener("click", cancelEditButtonHandler);
