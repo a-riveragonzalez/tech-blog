@@ -12,7 +12,7 @@
   >Add Post</button>
 
   <div class="row mt-4">
-    <div class="col-md-6 make-posts-el">
+    <div class="col-md-6" id="make-posts-el">
       <h3>Create a New post:</h3>
 
       <form class="form new-post-form">
@@ -53,16 +53,55 @@
                   class="no-button"
                 >{{post.title}}</a></h4>
             </div>
+
             <div class="col-md-4">
+              <button
+                class="btn btn-sm btn-primary"
+                data-id="{{post.id}}"
+                id="edit-btn"
+              >EDIT</button>
               <button
                 class="btn btn-sm btn-danger"
                 data-id="{{post.id}}"
+                id="delete-btn"
               >DELETE</button>
             </div>
+            
           </div>
+
+          {{!-- ! why does this only work for the first item? --}}
+          <form class="form edit-post-form">
+            <h3>Edit Post: </h3>
+            <div class="form-group">
+              <label for="post-name">post name:</label>
+              <input
+                class="form-input"
+                type="text"
+                id="edit-post-name"
+                name="post-name"
+                value="{{post.title}}"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="post-desc">description:</label>
+              <input
+                class="form-input"
+                id="edit-post-desc"
+                name="post-desc"
+                value="{{post.content}}"
+              ></input>
+            </div>
+
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+          </form>
         {{/each}}
       </div>
     {{/if}}
+
+
   </div>
 
 </main>

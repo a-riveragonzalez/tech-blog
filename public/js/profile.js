@@ -1,8 +1,10 @@
-const makePostsEl = document.querySelector(".make-posts-el");
+const makePostsEl = document.querySelector("#make-posts-el");
+const editPostsEl = document.querySelector(".edit-post-form");
 const addPostbtn = document.querySelector("#new-post-btn");
 
 const displayAddPost = async () => {
   addPostbtn.style.display = "none";
+  editPostsEl.style.display = "none";
   makePostsEl.style.display = "block";
 };
 
@@ -45,12 +47,35 @@ const delButtonHandler = async (event) => {
   }
 };
 
+const editButtonHandler = async (event) => {
+  makePostsEl.style.display = "none";
+  editPostsEl.style.display = "block";
+
+  // if (event.target.hasAttribute("data-id")) {
+  //   const id = event.target.getAttribute("data-id");
+
+  //   const response = await fetch(`/api/posts/${id}`, {
+  //     method: "DELETE",
+  //   });
+
+  //   if (response.ok) {
+  //     document.location.replace("/profile");
+  //   } else {
+  //     alert("Failed to delete post");
+  //   }
+  // }
+};
+
+addPostbtn.addEventListener("click", displayAddPost);
+
 document
   .querySelector(".new-post-form")
   .addEventListener("submit", newFormHandler);
 
 document
-  .querySelector(".post-list")
+  .querySelector("#delete-btn")
   .addEventListener("click", delButtonHandler);
 
-addPostbtn.addEventListener("click", displayAddPost);
+document
+  .querySelector("#edit-btn")
+  .addEventListener("click", editButtonHandler);

@@ -70,7 +70,11 @@ h1 {
   font-size: 15px;
 }
 
-.make-posts-el {
+.edit-post-form {
+  display: none;
+}
+
+#make-posts-el {
   display: none;
 }
 
