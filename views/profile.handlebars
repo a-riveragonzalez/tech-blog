@@ -12,7 +12,7 @@
   >Add Post</button>
 
   <div class="row mt-4">
-    <div class="col-md-6" id="make-posts-el">
+    <div class="col-md-6 make-posts-el" id="make-posts-el">
       <h3>Create a New post:</h3>
 
       <form class="form new-post-form">
@@ -36,7 +36,7 @@
         </div>
 
         <div class="form-group">
-          <button type="submit" class="btn btn-primary">Create</button>
+          <button type="submit" class="btn btn-primary" >Create</button>
         </div>
       </form>
     </div>
@@ -71,7 +71,7 @@
           </div>
 
           {{!-- ! why does this only work for the first item? --}}
-          <form class="form edit-post-form">
+          <form class="form edit-post-form" id="edit-post-form">
             <h3>Edit Post: </h3>
             <div class="form-group">
               <label for="post-name">post name:</label>
@@ -96,10 +96,10 @@
 
             <div class="row">
               <div class="form-group col-3 ">
-                <button type="submit" class="btn btn-primary" id="save-edit-btn">Save</button>
+                <button type="submit" data-id="{{post.id}}" class="btn btn-primary" id="save-edit-btn">Save</button>
               </div>
               <div class="form-group col-3 ">
-                <button type="submit" class="btn btn-primary id
+                <button type="submit" data-id="{{post.id}}" class="btn btn-primary id
                 cancel-btn">Cancel</button>
               </div>
             </div>

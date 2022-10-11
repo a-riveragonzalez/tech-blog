@@ -1,11 +1,11 @@
-const makePostsEl = document.querySelector("#make-posts-el");
+const makePostsEl = document.querySelector(".make-posts-el");
 const editPostsEl = document.querySelector(".edit-post-form");
 const addPostbtn = document.querySelector("#new-post-btn");
 
 const displayAddPost = async () => {
+  makePostsEl.style.display = "block";
   addPostbtn.style.display = "none";
   editPostsEl.style.display = "none";
-  makePostsEl.style.display = "block";
 };
 
 const newFormHandler = async (event) => {
