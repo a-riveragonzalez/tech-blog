@@ -33,8 +33,8 @@ const newFormHandler = async (event) => {
 
 // todo how to make all of them work (not just first)
 const delButtonHandler = async (event) => {
-  if (event.target.hasAttribute("data-id")) {
-    const id = event.target.getAttribute("data-id");
+  if (event.target.hasAttribute("data-delete")) {
+    const id = event.target.getAttribute("data-delete");
 
     const response = await fetch(`/api/posts/${id}`, {
       method: "DELETE",
@@ -49,8 +49,13 @@ const delButtonHandler = async (event) => {
 };
 
 const showEditButtonHandler = async (event) => {
+  const dataEdit = event.target.getAttribute("data-edit");
+  // if (dataEdit) {
+
+  // }
+  const dataForm = document.querySelector(`form[data-form="${dataEdit}"]`);
   makePostsEl.style.display = "none";
-  editPostsEl.style.display = "block";
+  dataForm.style.display = "block";
 };
 
 const cancelEditButtonHandler = async () => {
@@ -90,12 +95,14 @@ document
   .addEventListener("submit", newFormHandler);
 
 document
-  .querySelector("#delete-btn")
+  .querySelector(".post-list")
   .addEventListener("click", delButtonHandler);
 
-document
-  .querySelector("#edit-btn")
-  .addEventListener("click", showEditButtonHandler);
+const editBtns = document.querySelectorAll(".edit-btn");
+
+editBtns.forEach((el) => {
+  el.addEventListener("click", showEditButtonHandler);
+});
 
 document
   .querySelector("#save-edit-btn")
