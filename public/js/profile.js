@@ -1,13 +1,18 @@
+//*************************** Reference Variables ************************************//
 const makePostsEl = document.querySelector(".make-posts-el");
 const editPostsEl = document.querySelector(".edit-post-form");
 const addPostbtn = document.querySelector("#new-post-btn");
 
+//*************************** Functions ************************************//
+
+// function to display add post, hide button
 const displayAddPost = async () => {
   makePostsEl.style.display = "block";
   addPostbtn.style.display = "none";
   editPostsEl.style.display = "none";
 };
 
+// function to add a post
 const newFormHandler = async (event) => {
   event.preventDefault();
 
@@ -31,7 +36,7 @@ const newFormHandler = async (event) => {
   }
 };
 
-// todo how to make all of them work (not just first)
+// function to delete a post
 const delButtonHandler = async (event) => {
   if (event.target.hasAttribute("data-delete")) {
     const id = event.target.getAttribute("data-delete");
@@ -48,6 +53,7 @@ const delButtonHandler = async (event) => {
   }
 };
 
+// function to show the edit form
 const showEditButtonHandler = async (event) => {
   const dataEdit = event.target.getAttribute("data-edit");
   // if (dataEdit) {
@@ -58,19 +64,22 @@ const showEditButtonHandler = async (event) => {
   dataForm.style.display = "block";
 };
 
+// function for the cancel edit (hides edit form)
 const cancelEditButtonHandler = async () => {
   editPostsEl.style.display = "none";
   makePostsEl.style.display = "none";
 };
 
-// todo update a post
+// todo function to update a post
 const editButtonHandler = async (event) => {
-  if (event.target.hasAttribute("data-id")) {
+  if (event.target.hasAttribute("data-editid")) {
     event.preventDefault();
 
-    const id = event.target.getAttribute("data-id");
-    const title = document.querySelector("#edit-post-name").value.trim();
-    const content = document.querySelector("#edit-post-desc").value.trim();
+    const id = event.target.getAttribute("data-editid");
+    const title = document.querySelector(`#edit-post-name-${id}`).value.trim();
+    const content = document
+      .querySelector(`#edit-post-desc-${id}`)
+      .value.trim();
 
     const response = await fetch(`/api/posts/${id}`, {
       method: "PUT",
@@ -88,6 +97,8 @@ const editButtonHandler = async (event) => {
   }
 };
 
+//*************************** Event Listeners ************************************//
+
 addPostbtn.addEventListener("click", displayAddPost);
 
 document
@@ -104,9 +115,11 @@ editBtns.forEach((el) => {
   el.addEventListener("click", showEditButtonHandler);
 });
 
-document
-  .querySelector("#save-edit-btn")
-  .addEventListener("click", editButtonHandler);
+const editSubmitBtns = document.querySelectorAll(".save-edit-btn");
+
+editSubmitBtns.forEach((el) => {
+  el.addEventListener("click", editButtonHandler);
+});
 
 document
   .querySelector("#cancel-btn")
