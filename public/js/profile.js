@@ -70,7 +70,7 @@ const cancelEditButtonHandler = async () => {
   makePostsEl.style.display = "none";
 };
 
-// todo function to update a post
+// function to update a post
 const editButtonHandler = async (event) => {
   if (event.target.hasAttribute("data-editid")) {
     event.preventDefault();

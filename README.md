@@ -4,9 +4,8 @@
 
 ## Description
 
-Writing about tech can be just as important as making it. Developers spend plenty of time creating new applications and debugging existing codebases, but most developers also spend at least some of their time reading and writing about technical concepts, recent advancements, and new technologies. A simple Google search for any concept covered in this course returns thousands of think pieces and tutorials from developers of all skill levels!
-
-Your task this week is to build a CMS-style blog site similar to a Wordpress site, where developers can publish their blog posts and comment on other developers’ posts as well. You’ll build this site completely from scratch and deploy it to Heroku. Your app will follow the MVC paradigm in its architectural structure, using Handlebars.js as the templating language, Sequelize as the ORM, and the express-session npm package for authentication.
+This is a CMS-style web application, similar to a Wordpress site, where developers can publish their blog posts and comment on other developers’ posts as well. This app follows the MVC paradigm in its architectural structure, using Handlebars.js as the templating language, Sequelize as the ORM, and the express-session npm package for authentication.
+The tools used are: JavaScript, CSS, MVC, MySql, Express.js, Node.js, Sequelize, Handlebars, Bootstrap, Google Fonts, and bcrypt 
 
 ## Table of Contents
 
@@ -70,7 +69,11 @@ THEN I am able to view comments but I am prompted to log in again before I can a
 This program can be run through a browser using the link to the the deployed application.
 
 ## Usage
+All users are able to see all existing blog posts and their comments. 
 
+In order to add a blog post or comment on an existing post, the user must sign in or sign up by clicking the login button on the top right of the screen. 
+
+After logging in, the user is brought to their dashboard where they are able to create posts, edit existing ones, or delete posts. 
 
 ## Credits
 
@@ -82,10 +85,20 @@ Photo by <a href="https://unsplash.com/@gamell?utm_source=unsplash&utm_medium=re
 
 ## Deployed Link
 
+https://tech-blog-6.herokuapp.com/
+
 ## GitHub Repository
 
 https://github.com/a-riveragonzalez/tech-blog
 
 ## Preview
 
-![]()
+![tech-blog-homepage-image](/Assets/techblog-homepage.png)
+
+## Questions
+
+If you have any questions, please feel free to reach me at :
+arelyrivera1996@gmail.com
+
+To check out more of my work:
+https://github.com/a-riveragonzalez
